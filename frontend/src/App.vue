@@ -1,16 +1,8 @@
 <template>
-  <div id="app" class="container is-max-desktop">
-    <router-view />
-  </div>
+  <div id="nav" classs="container is-max-desktop"></div>
+  <router-view />
 </template>
- 
-<script>
-export default {
-  name: "App",
-};
-</script>
- 
+
 <style>
-/* import style bulma */
 @import "~bulma/css/bulma.css";
 </style>

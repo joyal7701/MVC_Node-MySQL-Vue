@@ -11,7 +11,7 @@
         />
       </div>
     </div>
- 
+
     <div class="field">
       <label class="label">Price</label>
       <div class="control">
@@ -23,18 +23,18 @@
         />
       </div>
     </div>
+
     <div class="control">
       <button class="button is-success" @click="updateProduct">UPDATE</button>
     </div>
   </div>
 </template>
- 
+
 <script>
-// import axios
+//import axios
 import axios from "axios";
- 
+
 export default {
-  name: "EditProduct",
   data() {
     return {
       productName: "",
@@ -45,7 +45,7 @@ export default {
     this.getProductById();
   },
   methods: {
-    // Get Product By Id
+    //get product by id
     async getProductById() {
       try {
         const response = await axios.get(
@@ -57,8 +57,8 @@ export default {
         console.log(err);
       }
     },
- 
-    // Update product
+
+    //update product
     async updateProduct() {
       try {
         await axios.put(
@@ -68,8 +68,7 @@ export default {
             product_price: this.productPrice,
           }
         );
-        this.productName = "";
-        this.productPrice = "";
+        (this.productName = ""), (this.productPrice = "");
         this.$router.push("/");
       } catch (err) {
         console.log(err);
@@ -78,6 +77,5 @@ export default {
   },
 };
 </script>
- 
-<style>
-</style>
+
+<style></style>

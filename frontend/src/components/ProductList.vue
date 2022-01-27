@@ -13,7 +13,9 @@
       </thead>
       <tbody>
         <tr v-for="item in items" :key="item.product_id">
-          <td>{{ item.product_name }}</td>
+          <td>
+            {{ item.product_name }}
+          </td>
           <td>{{ item.product_price }}</td>
           <td class="has-text-centered">
             <router-link
@@ -32,35 +34,32 @@
     </table>
   </div>
 </template>
- 
+
 <script>
-// import axios
+//import axios
 import axios from "axios";
- 
+
 export default {
-  name: "ProductList",
   data() {
     return {
       items: [],
     };
   },
- 
   created() {
     this.getProducts();
   },
- 
   methods: {
-    // Get All Products
+    //get all products
     async getProducts() {
       try {
         const response = await axios.get("http://localhost:5000/products");
         this.items = response.data;
+        console.log(this.items);
       } catch (err) {
         console.log(err);
       }
     },
- 
-    // Delete Product
+    //delete product
     async deleteProduct(id) {
       try {
         await axios.delete(`http://localhost:5000/products/${id}`);
@@ -72,6 +71,5 @@ export default {
   },
 };
 </script>
- 
-<style>
-</style>
+
+<style></style>
